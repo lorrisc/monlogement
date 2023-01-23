@@ -15,12 +15,12 @@ class AccountPropertie extends Migration
     {
         Schema::create('account_propertie', function (Blueprint $table) {
             $table->unsignedBigInteger('account_id')->notNullable();
-            $table->unsignedBigInteger('propertie')->notNullable();
+            $table->unsignedBigInteger('propertie_id')->notNullable();
             $table->timestamps();
 
-            $table->primary(['account_id', 'propertie']);
+            $table->primary(['account_id', 'propertie_id']);
             $table->foreign('account_id')->references('id')->on('accounts');
-            $table->foreign('propertie')->references('id')->on('properties');
+            $table->foreign('propertie_id')->references('id')->on('properties');
         });
     }
 
