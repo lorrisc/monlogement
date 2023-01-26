@@ -14,9 +14,12 @@
     <meta name="author" content="Lorris Crappier">
 
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
     @yield('style')
 
     <title>@yield('title') | MonLogement</title>
+
+    <script src="https://kit.fontawesome.com/facfbfe3cd.js" crossorigin="anonymous"></script>
 
 </head>
 

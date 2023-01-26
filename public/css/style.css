@@ -1,0 +1,32 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* font */
+@font-face {
+    font-family: "FiraSansRegular";
+    src: url("../fonts/Fira_Sans/FiraSans-Regular.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: "FiraSansMedium";
+    src: url("../fonts/Fira_Sans/FiraSans-Medium.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: "FiraSansSemiBold";
+    src: url("../fonts/Fira_Sans/FiraSans-SemiBold.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: "CarterOne";
+    src: url("../fonts/Carter_One/CarterOne-Regular.ttf");
+    font-display: swap;
+}
+
+body {
+    font-family: "FiraSansRegular";
+    font-size: 1em;
+}
