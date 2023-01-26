@@ -28,7 +28,9 @@
 
     @include('partials.header')
 
-    @yield('content')
+    <section id="pagecontainer" class="@yield('pagecontainerclass')">
+        @yield('content')
+    </section>
 
     @include('partials.footer')
 

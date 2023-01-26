@@ -4,6 +4,10 @@
     align-items: center;
     padding: 10px 0px;
     background: #eef0f2;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 #navbar__title,
 #navbar__button_container {
