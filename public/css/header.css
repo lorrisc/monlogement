@@ -1,0 +1,25 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    background: #eef0f2;
+}
+#navbar__title,
+#navbar__button_container {
+    margin: 0 20px;
+}
+#navbar__title h1 {
+    font-family: CarterOne;
+    font-size: 1.6em;
+    color: #011638;
+}
+#navbar a {
+    text-decoration: none;
+    padding: 2px 10px;
+    margin: 0 5px;
+}
+#navbar__button_container a {
+    font-family: FiraSansSemiBold;
+    color: #141414;
+}

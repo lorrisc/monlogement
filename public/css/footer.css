@@ -50,7 +50,7 @@ footer > section#footer__top {
 #footer__top > article > div a {
     margin: 3px 0;
 }
-#footer__top > article > div i {
+#footer__top > article > div#footer__top__socialmedia > a {
     margin: 3px 15px 3px 0;
 }
 
