@@ -62,27 +62,6 @@
     display: flex;
     justify-content: space-between;
 }
-#homeContainer__searchBox__inputs div {
-    height: 40px;
-    border-radius: 2.5px;
-    border: 1px solid #14141450;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#homeContainer__searchBox__inputs div input {
-    height: 100%;
-    width: 100%;
-    padding: 0 10px;
-    background-color: transparent;
-
-    font-family: FiraSansRegular;
-    font-size: 1em;
-
-    border: none;
-    outline: none;
-}
 /* size of field */
 #homeContainer__searchBox__inputs__location {
     width: 55%;
@@ -93,11 +72,6 @@
 }
 
 /* additional link */
-#advancedsearch,
-#ownerlink {
-    font-size: 0.8em;
-    color: #0d21a1;
-}
 #advancedsearch {
     margin-left: auto;
     margin-right: 15px;
@@ -109,20 +83,7 @@
 
 /* submit button */
 #homeContainer__searchBox button[type="submit"] {
-    margin: 35px auto 30px auto;
     width: 200px;
-    height: 50px;
-    background-color: #eec643;
-    border: none;
-    border-radius: 5px;
-
-    color: #141414;
-    cursor: pointer;
-    font-family: FiraSansSemiBold;
-    font-size: 1.1em;
-}
-#homeContainer__searchBox button[type="submit"]:hover {
-    background-color: #e1bb41;
 }
 
 /* ADVICE CONTAINER */

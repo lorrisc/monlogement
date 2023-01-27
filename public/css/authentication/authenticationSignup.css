@@ -1,0 +1,42 @@
+#signupContainer__password_regex {
+    background: #14141425;
+    color: #14141450;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 15px 20px;
+    padding: 10px 0;
+    border-radius: 2.5px;
+}
+#signupContainer__password_regex > div {
+    display: flex;
+    margin: 3px 0;
+    align-items: center;
+}
+#signupContainer__password_regex > div i {
+    margin: 0 10px;
+}
+#signupContainer__password_regex > div.regexValidate {
+    color: #141414;
+}
+#signupContainer__password_regex > div.regexValidate i {
+    color: #009107;
+}
+
+.formBoxAuth.popupDesactivate {
+    display: none;
+}
+
+.returnButton {
+    background: #14141425;
+    margin: 0 20px;
+}
+.returnButton:hover {
+    background: #14141450;
+}
+
+
+#signinRedirection1, #signinRedirection2{
+    font-size: 1em;
+}

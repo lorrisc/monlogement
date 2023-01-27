@@ -1,0 +1,48 @@
+.pagecontainer {
+    background-image: url("../../assets/home/home-bg-blur.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer,
+#footer__message__prevention {
+    display: none;
+}
+
+.formBoxAuth {
+    display: flex;
+    flex-direction: column;
+
+    background: #eef0f2;
+    border-radius: 5px;
+    width: 400px;
+    padding: 50px 0;
+
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 8px 0px, rgb(0 0 0 / 6%) 0px 2px 4px 0px,
+        rgb(0 0 0 / 4%) 0px 1px 2px 0px;
+}
+
+.formBoxAuth h2{
+    font-family: FiraSansSemiBold;
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.formBoxAuth__explainText{
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 20px;
+}
+.authBottomLink{
+    font-size: 0.9em;
+    text-align: center;
+}
+#createaccountlink{
+    font-size: 1em;
+}

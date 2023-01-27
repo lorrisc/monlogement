@@ -27,19 +27,19 @@ homePage
         </div>
 
         <div id="homeContainer__searchBox__inputs">
-            <div id="homeContainer__searchBox__inputs__location">
+            <div id="homeContainer__searchBox__inputs__location" class="normalInputManyElements">
                 <input type="text" name="searchlocation" id="searchlocation" placeholder="Dans quelle ville ? Département ?">
             </div>
-            <div id="homeContainer__searchBox__inputs__budget">
+            <div id="homeContainer__searchBox__inputs__budget" class="normalInputManyElements">
                 <input type="number" name="searchbudget" id="searchbudget" placeholder="Votre budget max ?">
                 <i class="fa-solid fa-euro-sign "></i>
             </div>
         </div>
 
-        <a href="#" id="advancedsearch">Recherche avancée</a>
-        <a href="#" id="ownerlink">Propriétaire ? Déposer votre annonce</a>
+        <a href="#" id="advancedsearch" class="blueLink">Recherche avancée</a>
+        <a href="#" id="ownerlink" class="blueLink">Propriétaire ? Déposer votre annonce</a>
 
-        <button type="submit" class="button">Rechercher</button>
+        <button type="submit" class="button submitButton">Rechercher</button>
     </form>
 </section>
 

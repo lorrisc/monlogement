@@ -13,9 +13,9 @@
     <meta name="description" content="Trouvez un appartement ou une maison en vente ou en location. Découvrez de nombreuses annonces immobilières francaise actualisée en temps réel.">
     <meta name="author" content="Lorris Crappier">
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/header.css" rel="stylesheet">
-    <link href="css/footer.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     @yield('style')
 
     <title>@yield('title') | MonLogement</title>
@@ -34,7 +34,7 @@
 
     @include('partials.footer')
 
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     @yield('javascript')
 
 </body>

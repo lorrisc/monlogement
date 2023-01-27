@@ -43,16 +43,16 @@ body {
     width: 100%;
 }
 
-.semiBold {
-    font-family: "FiraSansSemiBold";
-}
-
 .classicSection {
     padding: 70px 10vw;
 }
-
 .classicSection h2 {
     margin-bottom: 40px;
+}
+
+/* text */
+.semiBold {
+    font-family: "FiraSansSemiBold";
 }
 
 .underlineTitle {
@@ -72,5 +72,157 @@ body {
     left: 0;
     right: 0;
     width: 40px;
-    background: #EEC643;
+    background: #eec643;
+}
+
+.blueLink {
+    font-size: 0.8em;
+    color: #0d21a1;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.blackLink {
+    color: #141414;
+}
+.noUnderline {
+    text-decoration: none;
+}
+
+.inputErrorMessage {
+    font-size: 0.8em;
+    color: #db4536;
+    margin-bottom: 5px;
+    display: none;
+}
+.inputErrorMessage.inputErrorMessageActive {
+    display: block;
+}
+
+/* light navbar */
+#navbar.lightNavbar {
+    background: transparent;
+}
+#navbar.lightNavbar {
+    background: transparent;
+}
+#navbar.lightNavbar #navbar__title h1,
+#navbar.lightNavbar #navbar__button_container a {
+    color: #eef0f2;
+}
+
+/* input */
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+}
+.inputContainer .inputContainer__topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputContainer label {
+    font-family: FiraSansSemiBold;
+}
+.inputContainer .additionalText {
+    font-size: 0.9em;
+    color: #14141450;
+}
+.normalInput {
+    height: 40px;
+    border-radius: 2.5px;
+    border: 1px solid #14141450;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 5px 0;
+}
+input.normalInput {
+    outline: none;
+    font-family: FiraSansRegular;
+    font-size: 1em;
+    padding: 0 10px;
+}
+.normalInputManyElements {
+    height: 40px;
+    border-radius: 2.5px;
+    border: 1px solid #14141450;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.normalInputManyElements input {
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    background-color: transparent;
+
+    font-family: FiraSansRegular;
+    font-size: 1em;
+
+    border: none;
+    outline: none;
+}
+
+.errorInput {
+    border-color: #db4536;
+}
+
+/* button */
+.buttonReset {
+    background: transparent;
+    border: none;
+    width: fit-content;
+}
+
+.returnButton {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 2.5px;
+    font-size: 0.9em;
+    color: #141414;
+    width: fit-content;
+    padding: 1px 9px;
+    cursor: pointer;
+    font-family: FiraSansSemiBold;
+}
+.returnButton img {
+    margin-right: 10px;
+    width: 25px;
+    color: #141414;
+}
+
+/* validation button */
+.submitButtonContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.submitButton {
+    margin: 35px auto 30px auto;
+    width: 100%;
+    height: 50px;
+    background-color: #eec643;
+    border: none;
+    border-radius: 5px;
+    color: #141414;
+    cursor: pointer;
+    font-family: FiraSansSemiBold;
+    font-size: 1.1em;
+}
+.submitButton:hover {
+    background-color: #e1bb41;
+}
+
+.submitButton.blockSubmit {
+    background-color: #14141425;
+    color: #14141450;
+}
+
+.popupDesactivate {
+    display: none;
 }
