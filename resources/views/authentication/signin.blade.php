@@ -17,10 +17,26 @@ connectionPage
 
 @section('content')
 <section id="signinContainer">
-    <form action="{{ route('signinauth') }}" method="post" class="formBoxAuth">
+    <form action="{{ route('signinauth') }}" method="post" class="formBoxAuth 
+        @if(Session::has('statusResetPassword'))
+            sucessMessageTrue
+        @endif
+        @if(Session::has('errorMessage'))
+            sucessMessageTrue
+        @endif
+        ">
         @csrf
+
+        @if(Session::has('statusResetPassword'))
+        <div class="successMessage">{{ Session::get('statusResetPassword') }}</div>
+        @endif
+        @if(Session::has('errorMessage'))
+        <div class="errorMessage">{{ Session::get('errorMessage') }}</div>
+        @endif
+
         <h2>Bonjour !</h2>
         <p class="formBoxAuth__explainText">Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
+
 
         <div id="signinContainer__email" class="inputContainer">
             <div class="inputContainer__topline">

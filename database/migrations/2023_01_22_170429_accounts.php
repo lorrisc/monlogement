@@ -27,6 +27,8 @@ class Accounts extends Migration
             $table->string('website')->nullable();
             $table->string('siret')->nullable();
             $table->string('photo_agency_url')->nullable();
+            $table->string('reset_password_token')->nullable();
+            $table->timestamp('expiration_token_date')->nullable();
             $table->timestamps();
 
             $table->foreign('account_type_id')->references('id')->on('account_types');

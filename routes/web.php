@@ -36,3 +36,5 @@ Route::get('/mon-compte/creation', function () {
 Route::post('/mon-compte/connexionauth', [AccountAuthenticationController::class, 'connection'])->name('signinauth');
 Route::post('/mon-compte/creationauth', [AccountAuthenticationController::class, 'creation'])->name('signupauth');
 Route::post('/mon-compte/restoreauth', [AccountAuthenticationController::class, 'restore'])->name('restoreauth');
+Route::get('/mon-compte/reinitialisation/{email}/{token}', [AccountAuthenticationController::class, 'restoreexecute'])->name('restoreexecuteauth');
+Route::post('/mon-compte/reinitialisation/{email}/{token}', [AccountAuthenticationController::class, 'restoreconfirm'])->name('restoreconfirmauth');
