@@ -6,20 +6,52 @@ use App\Models\Account;
 use App\Models\AccountType;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AccountAuthenticationController extends Controller
 {
-    public function connection()
+    public function connection(Request $request)
     {
+        $rules = [
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ];
+
+        $messages = [
+            'email.required' => 'L\'adresse e-mail est obligatoire',
+            'email.regex' => 'L\'adresse e-mail n\'est pas valide',
+            'password.required' => 'Le mot de passe est obligatoire',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            $account = Account::where('email', $request->email)->first();
+
+            if ($account) {
+                if (Hash::check($request->password, $account->password)) { //compare hash password
+
+                    Auth::login($account); //remember connection
+
+                    return redirect()->route('home');
+                } else {
+                    return redirect()->back()->withErrors(['password' => 'Le mot de passe est incorrect'])->withInput();
+                }
+            } else {
+                return redirect()->back()->withErrors(['email' => 'L\'adresse e-mail n\'existe pas'])->withInput();
+            }
+        }
     }
 
 
     public function creation(Request $request)
     {
         $rules = [
-            'email' => ['required','email',Rule::unique('accounts')],
+            'email' => ['required', 'email', Rule::unique('accounts')],
             'firstname' => ['required'],
             'name' => 'required',
             'password' => ['required', 'min:8', 'max:50', 'regex:/[a-z]/',  'regex:/[A-Z]/',  'regex:/[0-9]/'],

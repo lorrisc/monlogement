@@ -27,7 +27,14 @@ connectionPage
                 <label for="email">E-mail</label>
                 <p class="additionalText">champ requis</p>
             </div>
-            <input type="email" name="email" id="email" class="normalInput">
+            <input type="email" name="email" id="email" class="normalInput <?php if ($errors->first('email')) {
+                                                                                echo 'errorInput';
+                                                                            } ?>">
+            <?php
+            if ($errors->first('email')) {
+                echo "<p class='inputErrorMessage inputErrorMessageActive'>" . $errors->first('email') . "</p>";
+            }
+            ?>
         </div>
 
         <div id="signinContainer__password" class="inputContainer">
@@ -35,8 +42,14 @@ connectionPage
                 <label for="password">Mot de passe</label>
                 <p class="additionalText">champ requis</p>
             </div>
-            <input type="password" name="password" id="password" class="normalInput">
-            <p class="inputErrorMessage">Votre identifiant ou votre mot de passe est incorrect.</p>
+            <input type="password" name="password" id="password" class="normalInput <?php if ($errors->first('password')) {
+                                                                                        echo 'errorInput';
+                                                                                    } ?>">
+            <?php
+            if ($errors->first('password')) {
+                echo "<p class='inputErrorMessage inputErrorMessageActive'>" . $errors->first('password') . "</p>";
+            }
+            ?>
             <a href="{{ route('restorepassword') }}" class="blueLink">Mot de passe oublié</a>
         </div>
 

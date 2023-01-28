@@ -12,6 +12,12 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'providers' => [
+        'accounts' => [
+            'driver' => 'eloquent',
+            'model' => App\Account::class,
+        ],
+    ],
 
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
