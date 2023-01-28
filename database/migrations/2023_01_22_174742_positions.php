@@ -15,7 +15,7 @@ class Positions extends Migration
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->integer('num_position')->notNullable();
+            $table->integer('num_position')->notNullable()->unique();
             $table->timestamps();
         });
     }

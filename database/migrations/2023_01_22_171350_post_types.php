@@ -15,7 +15,7 @@ class PostTypes extends Migration
     {
         Schema::create('post_types', function (Blueprint $table) {
             $table->id();
-            $table->string('lib_post_type',20)->notNullable();
+            $table->string('lib_post_type',20)->notNullable()->unique();
             $table->timestamps();
         });
     }

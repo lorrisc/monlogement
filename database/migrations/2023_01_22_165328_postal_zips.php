@@ -15,7 +15,7 @@ class PostalZips extends Migration
     {
         Schema::create('postal_zips', function (Blueprint $table) {
             $table->id();
-            $table->char('lib_postal_zip',5)->notNullable();
+            $table->char('lib_postal_zip',5)->notNullable()->unique();
             $table->timestamps();
         });
     }

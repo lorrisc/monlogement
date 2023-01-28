@@ -15,7 +15,7 @@ class Departments extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->string('lib_department',100)->notNullable();
+            $table->string('lib_department',100)->notNullable()->unique();
             $table->timestamps();
         });
     }

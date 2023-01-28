@@ -15,7 +15,7 @@ class PropertyTypes extends Migration
     {
         Schema::create('property_types', function (Blueprint $table) {
             $table->id();
-            $table->string('lib_property_type',200)->notNullable();
+            $table->string('lib_property_type',200)->notNullable()->unique();
             $table->timestamps();
         });
     }

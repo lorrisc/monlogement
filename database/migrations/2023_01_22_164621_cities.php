@@ -15,7 +15,7 @@ class Cities extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('lib_city',100)->notNullable();
+            $table->string('lib_city',100)->notNullable()->unique();
             $table->unsignedBigInteger('department_id')->notNullable();
             $table->timestamps();
             

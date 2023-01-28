@@ -15,7 +15,7 @@ class AccountTypes extends Migration
     {
         Schema::create('account_types', function (Blueprint $table) {
             $table->id();
-            $table->string('lib_account_type',20)->notNullable();
+            $table->string('lib_account_type',20)->notNullable()->unique();
             $table->timestamps();
         });
     }

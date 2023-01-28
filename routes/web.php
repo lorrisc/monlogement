@@ -18,7 +18,7 @@ use App\Http\Controllers\AccountAuthenticationController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 // account authentication
 Route::get('/mon-compte/connexion', function () {
