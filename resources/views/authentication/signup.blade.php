@@ -125,7 +125,7 @@ connectionPage
                 ?>
             </div>
 
-            <div id="signupContainer__password_regex">
+            <div id="signupContainer__password_regex"  class="password_regex_indication">
                 <div id="minchar">
                     <i class="fa-solid fa-check"></i>
                     <p>8 caractères minimum</p>

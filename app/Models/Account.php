@@ -22,22 +22,28 @@ class Account extends Authenticatable
         'agency_name',
         'website',
         'siret',
-        'photo_agency_url'
+        'photo_agency_url',
+        'reset_password_token',
+        'expiration_token_date'
     ];
 
-    public function AccountType(){
+    public function AccountType()
+    {
         return $this->belongsTo(AccountType::class);
     }
 
-    public function AccountPropertie(){
+    public function AccountPropertie()
+    {
         return $this->hasMany(AccountPropertie::class);
     }
 
-    public function Alert(){
+    public function Alert()
+    {
         return $this->hasMany(Alert::class);
     }
-    
-    public function Propertie(){
+
+    public function Propertie()
+    {
         return $this->hasMany(Propertie::class);
     }
 }

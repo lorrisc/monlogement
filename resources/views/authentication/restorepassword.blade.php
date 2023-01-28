@@ -17,8 +17,18 @@ connectionPage
 
 @section('content')
 <section id="restorePasswordContainer">
-    <form action="{{ route('restoreauth') }}" method="post" class="formBoxAuth">
+    <form action="{{ route('restoreauth') }}" method="post" class="formBoxAuth
+        @if(Session::has('errorMessage'))
+            sucessMessageTrue
+        @endif
+        
+        ">
         @csrf
+
+        @if(Session::has('errorMessage'))
+        <div class="errorMessage">{{ Session::get('errorMessage') }}</div>
+        @endif
+
         <h2>Mot de passe oublié</h2>
         <p class="formBoxAuth__explainText">Saisir l’adresse e-mail associée à votre compte.</p>
 
@@ -27,8 +37,17 @@ connectionPage
                 <label for="email">E-mail</label>
                 <p class="additionalText">champ requis</p>
             </div>
-            <input type="email" name="email" id="email" class="normalInput">
-            <p class="inputErrorMessage">Votre email est incorrect.</p>
+            <input type="email" name="email" id="email" class="normalInput <?php if ($errors->first('email')) {
+                                                                                echo 'errorInput';
+                                                                            } ?>">
+            <?php
+            if ($errors->first('email')) {
+                echo "<p class='inputErrorMessage inputErrorMessageActive'>" . $errors->first('email') . "</p>";
+            }
+            if ($errors->first('error')) {
+                echo "<p class='inputErrorMessage inputErrorMessageActive'>" . $errors->first('error') . "</p>";
+            }
+            ?>
         </div>
 
         <div class="submitButtonContainer">

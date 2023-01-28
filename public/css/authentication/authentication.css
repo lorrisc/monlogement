@@ -27,22 +27,25 @@ footer,
     box-shadow: rgb(0 0 0 / 8%) 0px 4px 8px 0px, rgb(0 0 0 / 6%) 0px 2px 4px 0px,
         rgb(0 0 0 / 4%) 0px 1px 2px 0px;
 }
+.formBoxAuth.sucessMessageTrue {
+    padding: 0 0 50px 0;
+}
 
-.formBoxAuth h2{
+.formBoxAuth h2 {
     font-family: FiraSansSemiBold;
     font-size: 1.1em;
     text-align: center;
     margin-bottom: 20px;
 }
-.formBoxAuth__explainText{
+.formBoxAuth__explainText {
     margin-bottom: 40px;
     text-align: center;
     padding: 0 20px;
 }
-.authBottomLink{
+.authBottomLink {
     font-size: 0.9em;
     text-align: center;
 }
-#createaccountlink{
+#createaccountlink {
     font-size: 1em;
 }
