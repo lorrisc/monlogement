@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Password;
 
 class AccountAuthenticationController extends Controller
 {
+
     public function connection(Request $request)
     {
         $rules = [
@@ -40,7 +42,8 @@ class AccountAuthenticationController extends Controller
             if ($account) {
                 if (Hash::check($request->password, $account->password)) { //compare hash password
 
-                    Auth::login($account); //remember connection
+                    session(['account_id' => $account->id]);
+                    session(['account_email' => $account->email]);
 
                     return redirect()->route('home');
                 } else {
@@ -97,6 +100,12 @@ class AccountAuthenticationController extends Controller
     // reset password first step
     public function restore(Request $request)
     {
+        if (Auth::check()) {
+            dd('utilisateur connecté');
+        } else {
+            dd('utilisateur non connecté');
+        }
+
         $rules = [
             'email' => ['required', 'email', 'exists:accounts,email'],
         ];

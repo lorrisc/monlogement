@@ -13,7 +13,7 @@ return [
     |
     */
     'providers' => [
-        'accounts' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => App\Account::class,
         ],

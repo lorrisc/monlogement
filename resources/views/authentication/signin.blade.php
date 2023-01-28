@@ -45,7 +45,7 @@ connectionPage
             </div>
             <input type="email" name="email" id="email" class="normalInput <?php if ($errors->first('email')) {
                                                                                 echo 'errorInput';
-                                                                            } ?>">
+                                                                            } ?>"  value="{{old('email')}}">
             <?php
             if ($errors->first('email')) {
                 echo "<p class='inputErrorMessage inputErrorMessageActive'>" . $errors->first('email') . "</p>";

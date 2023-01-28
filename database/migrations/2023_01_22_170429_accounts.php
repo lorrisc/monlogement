@@ -29,6 +29,7 @@ class Accounts extends Migration
             $table->string('photo_agency_url')->nullable();
             $table->string('reset_password_token')->nullable();
             $table->timestamp('expiration_token_date')->nullable();
+            $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('account_type_id')->references('id')->on('account_types');

@@ -16,7 +16,6 @@ class Account extends Authenticatable
         'firstname',
         'surname',
         'phone',
-        'password',
         'display_email',
         'display_phone',
         'agency_name',
@@ -24,7 +23,10 @@ class Account extends Authenticatable
         'siret',
         'photo_agency_url',
         'reset_password_token',
-        'expiration_token_date'
+        'expiration_token_date',
+    ];
+    protected $hidden = [
+        'password',
     ];
 
     public function AccountType()
