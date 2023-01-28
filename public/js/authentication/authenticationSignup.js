@@ -10,6 +10,18 @@ let emailPassed = false;
 //submit button
 let signupStep1__button = document.querySelector("#signupStep1__button");
 
+// if user go back and input are aleady completed
+setTimeout(function () {
+    if (email.value != "" && firstname.value != "" && name.value != "") {
+        if (
+            /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                email.value
+            )
+        )
+            signupStep1__button.classList.remove("blockSubmit");
+    }
+}, 500);
+
 email.addEventListener("input", function (event) {
     validationEmail(this);
 });

@@ -213,6 +213,7 @@ input.normalInput {
     cursor: pointer;
     font-family: FiraSansSemiBold;
     font-size: 1.1em;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 .submitButton:hover {
     background-color: #e1bb41;
