@@ -3,7 +3,7 @@
 <!-- css file -->
 @section('style')
 <link href="{{asset('css/authentication/authentication.css')}}" rel="stylesheet">
-<link href="{{asset('css/authentication/authenticationSignup.css')}}" rel="stylesheet">
+<link href="{{asset('css/passwordTest.css')}}" rel="stylesheet">
 @endsection
 
 <!-- title page -->
@@ -18,7 +18,7 @@ connectionPage
 
 @section('content')
 <section id="restorePasswordContainer">
-    <form action="{{route('restoreconfirmauth', ['email' => $email, 'token' => $token])}}" method="post" class="formBoxAuth" id="restorePasswordForm">
+    <form action="{{route('restoreconfirmauth', ['email' => $email, 'token' => $token])}}" method="post" class="formBoxAuth" id="restorePasswordForm" class="passwordform">
         @csrf
 
         @if(Session::has('statusResetPassword'))
@@ -73,7 +73,7 @@ connectionPage
         </div>
 
         <div class="submitButtonContainer">
-            <button type="button" class="button submitButton blockSubmit" id="restorePassword__button">Confirmer</button>
+            <button type="button" class="button submitButton blockSubmit submitpassword" id="restorePassword__button">Confirmer</button>
         </div>
 
     </form>

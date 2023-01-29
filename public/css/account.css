@@ -1,0 +1,15 @@
+.pagecontainer {
+    display: flex;
+    width: 65%;
+    margin: 0 auto;
+}
+
+/* TITLE */
+.account_title {
+    margin-right: auto;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+.account_title h2 {
+    margin-bottom: 10px;
+}

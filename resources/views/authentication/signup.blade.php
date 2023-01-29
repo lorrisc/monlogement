@@ -4,6 +4,7 @@
 @section('style')
 <link href="{{asset('css/authentication/authentication.css')}}" rel="stylesheet">
 <link href="{{asset('css/authentication/authenticationSignup.css')}}" rel="stylesheet">
+<link href="{{asset('css/passwordTest.css')}}" rel="stylesheet">
 @endsection
 
 <!-- title page -->
@@ -117,7 +118,7 @@ connectionPage
                 </div>
                 <input type="password" name="password" id="password" class="normalInput <?php if ($errors->first('password')) {
                                                                                             echo 'errorInput';
-                                                                                        } ?>" value="{{old('password')}}">
+                                                                                        } ?>">
                 <?php
                 if ($errors->first('password')) {
                     echo "<p class='inputErrorMessage inputErrorMessageActive'>" . $errors->first('password') . "</p>";

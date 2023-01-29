@@ -106,12 +106,6 @@ class AccountAuthenticationController extends Controller
     // reset password first step
     public function restore(Request $request)
     {
-        if (Auth::check()) {
-            dd('utilisateur connecté');
-        } else {
-            dd('utilisateur non connecté');
-        }
-
         $rules = [
             'email' => ['required', 'email', 'exists:accounts,email'],
         ];

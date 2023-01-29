@@ -52,3 +52,9 @@ Route::post('/mon-compte/reinitialisation/{email}/{token}', [AccountAuthenticati
 // ACCOUNT
 Route::get('/mon-compte', [AccountController::class, 'index'])->name('dpaccountdashboard');
 Route::get('/mon-compte/deconnexion', [AccountController::class, 'logout'])->name('logout');
+
+Route::get('/mon-compte/gestion', [AccountController::class, 'manageaccount'])->name('manageaccount');
+
+Route::post('/mon-compte/editaccountinformation', [AccountController::class, 'editaccountinformation'])->name('editaccountinformation');
+Route::post('/mon-compte/editpassword', [AccountController::class, 'editpassword'])->name('editpassword');
+Route::post('/mon-compte/editcontactpreferences', [AccountController::class, 'editcontactpreferences'])->name('editcontactpreferences');

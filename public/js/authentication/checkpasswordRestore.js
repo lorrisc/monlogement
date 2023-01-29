@@ -8,7 +8,7 @@ let figure = document.querySelector("#chiffre");
 //input
 let passwordvalue = document.querySelector("#password");
 
-let restorePassword__button = document.querySelector("#restorePassword__button");
+let submitpassword_button = document.querySelector(".submitpassword");
 
 //event
 passwordvalue.addEventListener("input", function () {
@@ -58,31 +58,31 @@ function validation(password) {
         minchar.classList.contains("regexValidate") &&
         maxchar.classList.contains("regexValidate")
     ) {
-        restorePassword__button.classList.remove("blockSubmit");
+        submitpassword_button.classList.remove("blockSubmit");
     } else {
-        restorePassword__button.classList.add("blockSubmit");
+        submitpassword_button.classList.add("blockSubmit");
     }
 }
 
 //************ submit form
-restorePassword__button.addEventListener("click", () => {
-    if (restorePassword__button.classList.contains("blockSubmit")) {
+submitpassword_button.addEventListener("click", () => {
+    if (submitpassword_button.classList.contains("blockSubmit")) {
         return;
     } else {
-        let restorePasswordForm = document.querySelector("#restorePasswordForm");
-        restorePasswordForm.submit();
+        let passwordform = document.querySelector(".passwordform");
+        passwordform.submit();
     }
 });
 
 //************ submit form if enter and all is passed
 passwordvalue.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-        if (restorePassword__button.classList.contains("blockSubmit")) {
+        if (submitpassword_button.classList.contains("blockSubmit")) {
             return;
         } else {
-            let restorePasswordForm =
-                document.querySelector("#restorePasswordForm");
-            restorePasswordForm.submit();
+            let passwordform =
+                document.querySelector(".passwordform");
+            passwordform.submit();
         }
     }
 });

@@ -2,6 +2,7 @@
 
 <!-- css file -->
 @section('style')
+<link href="{{ asset('css/account.css') }}" rel="stylesheet">
 <link href="{{ asset('css/accountDashboard.css') }}" rel="stylesheet">
 @endsection
 
@@ -41,7 +42,7 @@ id="accountDashboardPage"
                 <p class="textButton">Recherche immobilièress</p>
             </div>
         </a>
-        <a href="">
+        <a href="{{ route( 'manageaccount') }}">
             <img src="{{ asset('assets/icons/setting_premium.png') }}" alt="Icône gérer compte">
             <div>
                 <p class="semiBold">Gérer mon compte</p>

@@ -104,7 +104,7 @@ body {
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 15px 0;
+    padding: 15px 05px;
 }
 .successMessage {
     background: #d9e7d1;
@@ -141,7 +141,7 @@ body {
 .inputContainer label {
     font-family: FiraSansSemiBold;
 }
-.inputContainer .additionalText {
+.additionalText {
     font-size: 0.9em;
     color: #14141450;
 }
@@ -188,8 +188,22 @@ input.normalInput {
     border-color: #db4536;
 }
 
+.checkboxcontainer {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.checkboxcontainer input {
+    margin-right: 10px;
+}
+.checkboxcontainerobligatory {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* button */
-button{
+button {
     font-family: FiraSansRegular;
 }
 .buttonReset {
@@ -205,11 +219,13 @@ button{
     border: none;
     border-radius: 2.5px;
     font-size: 0.9em;
+    text-decoration: none;
     color: #141414;
     width: fit-content;
     padding: 1px 9px;
     cursor: pointer;
     font-family: FiraSansSemiBold;
+    transition: background-color 0.2s ease-out, color 0.3s ease-out;
 }
 .returnButton img {
     margin-right: 10px;
@@ -222,21 +238,33 @@ button{
     padding-left: 20px;
     padding-right: 20px;
 }
-.submitButton {
+
+.submitButton,
+.resetButton {
     margin: 35px auto 30px auto;
     width: 100%;
     height: 50px;
-    background-color: #eec643;
     border: none;
     border-radius: 5px;
-    color: #141414;
-    cursor: pointer;
     font-family: FiraSansSemiBold;
     font-size: 1.1em;
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    cursor: pointer;
+}
+.submitButton {
+    background-color: #eec643;
+    color: #141414;
 }
 .submitButton:hover {
     background-color: #e1bb41;
+}
+.resetButton {
+    background-color: #14141425;
+    color: #14141450;
+}
+.resetButton:hover {
+    background-color: #14141450;
+    color: #141414;
 }
 
 .submitButton.blockSubmit {

@@ -1,0 +1,66 @@
+#accountManagerPage {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 150px;
+    width: 55%;
+    padding-bottom: 100px;
+}
+
+#accountManagerPage .account_title {
+    margin-right: auto;
+    margin-left: 0px;
+    margin-bottom: 50px;
+}
+
+.returnButton {
+    background: #14141425;
+    margin-bottom: 20px;
+}
+.returnButton:hover {
+    background: #14141450;
+}
+
+/* FORMS */
+#account__manager {
+    display: flex;
+    justify-content: space-between;
+}
+#account__manager > .account__manager__part {
+    width: 40%;
+}
+
+#account__manager .inputContainer {
+    padding: 15px 0px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttonContainer .resetButton {
+    margin-right: 15px;
+}
+.buttonContainer .submitButton {
+    margin-left: 15px;
+}
+
+/* PASSWORD */
+#accountManagerPage .password_regex_indication {
+    margin: 0px;
+}
+
+/* CNTACT PREFERENCE */
+#account__manager__contactpreferences {
+    margin-top: 50px;
+}
+#account__manager__contactpreferences legend {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* ERROR SUCESS MESSAGE */
+#accountManagerPage .successMessage,
+#accountManagerPage .errorMessage {
+    margin-bottom: 15px;
+}
