@@ -1,0 +1,68 @@
+#accountDashboardPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 65%;
+    height: 75vh;
+    margin: 0 auto;
+}
+
+/* TITLE */
+.account_title {
+    margin-right: auto;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+.account_title h2 {
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+#account__dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#account__dashboard__firstline,
+#account__dashboard__secondline {
+    display: flex;
+    justify-content: space-between;
+}
+
+#account__dashboard a {
+    background: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    padding: 25px 20px;
+    margin: 30px;
+    width: 33%;
+    color: #141414;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#account__dashboard a:hover,
+#account__dashboard a:focus {
+    background: #e1bb41;
+}
+
+/* icon */
+#account__dashboard a img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+/* text */
+#account__dashboard a div {
+    text-align: left;
+}
+#account__dashboard a div p.textButton {
+    margin-top: 4px;
+    font-size: 0.9em;
+}

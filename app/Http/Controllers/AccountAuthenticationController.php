@@ -42,10 +42,16 @@ class AccountAuthenticationController extends Controller
             if ($account) {
                 if (Hash::check($request->password, $account->password)) { //compare hash password
 
-                    session(['account_id' => $account->id]);
-                    session(['account_email' => $account->email]);
+                    $account_id_crypt = encrypt(['account_id' => $account->id]);
+                    session(['account_id' => $account_id_crypt]);
 
-                    return redirect()->route('home');
+                    $account_email_crypt = encrypt(['account_email' => $account->email]);
+                    session(['account_email' => $account_email_crypt]);
+
+                    // $account_id_decrypt = decrypt(session('account_id'));
+                    // $accountId = $account_id_decrypt['account_id'];
+
+                    return redirect()->route('dpaccountdashboard');
                 } else {
                     return redirect()->back()->withErrors(['password' => 'Le mot de passe est incorrect'])->withInput();
                 }

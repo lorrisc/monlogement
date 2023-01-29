@@ -189,6 +189,9 @@ input.normalInput {
 }
 
 /* button */
+button{
+    font-family: FiraSansRegular;
+}
 .buttonReset {
     background: transparent;
     border: none;
