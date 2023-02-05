@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AccountAuthenticationController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,11 +40,11 @@ Route::post('/mon-compte/connexionauth', [AccountAuthenticationController::class
 Route::post('/mon-compte/creationauth', [AccountAuthenticationController::class, 'creation'])->name('signupauth');
 
 // RESET PASSWORD
-//restore send mail
+// send email
 Route::post('/mon-compte/restoreauth', [AccountAuthenticationController::class, 'restore'])->name('restoreauth');
-// restore see form
+// see form
 Route::get('/mon-compte/reinitialisation/{email}/{token}', [AccountAuthenticationController::class, 'restoreexecute'])->name('restoreexecuteauth');
-// restore send form
+// send form
 Route::post('/mon-compte/reinitialisation/{email}/{token}', [AccountAuthenticationController::class, 'restoreconfirm'])->name('restoreconfirmauth');
 
 
@@ -54,7 +55,10 @@ Route::get('/mon-compte', [AccountController::class, 'index'])->name('dpaccountd
 Route::get('/mon-compte/deconnexion', [AccountController::class, 'logout'])->name('logout');
 
 Route::get('/mon-compte/gestion', [AccountController::class, 'manageaccount'])->name('manageaccount');
+Route::get('/mon-compte/annonces/gestion', [AdController::class, 'index'])->name('managead');
 
 Route::post('/mon-compte/editaccountinformation', [AccountController::class, 'editaccountinformation'])->name('editaccountinformation');
 Route::post('/mon-compte/editpassword', [AccountController::class, 'editpassword'])->name('editpassword');
 Route::post('/mon-compte/editcontactpreferences', [AccountController::class, 'editcontactpreferences'])->name('editcontactpreferences');
+
+Route::get('/deposer-annonce', [AdController::class, 'dppublishad'])->name('dppublishad');

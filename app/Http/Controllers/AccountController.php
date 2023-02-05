@@ -26,7 +26,6 @@ class AccountController extends Controller
         return redirect()->route('home');
     }
 
-
     public function manageaccount()
     {
         if (!session()->has('account_id')) {
@@ -49,7 +48,7 @@ class AccountController extends Controller
                 'account_firstname' => $account_firstname,
                 'account_surname' => $account_surname,
                 'account_phone' => $account_phone
-            ]);;
+            ]);
         }
     }
 
@@ -152,7 +151,24 @@ class AccountController extends Controller
         if (!session()->has('account_id')) {
             return redirect()->route('signin');
         } else {
-            return view('manageaccount');
+            $account_id_decrypt = decrypt(session('account_id'));
+            $accountId = $account_id_decrypt['account_id'];
+
+            //get account information
+            $account = Account::where('id', $accountId)->first();
+
+            //store account information
+            $account_email = $account->email;
+            $account_firstname = $account->firstname;
+            $account_surname = $account->surname;
+            $account_phone = $account->phone;
+
+            return view('manageaccount')->with([
+                'account_email' => $account_email,
+                'account_firstname' => $account_firstname,
+                'account_surname' => $account_surname,
+                'account_phone' => $account_phone
+            ]);
         }
     }
 }

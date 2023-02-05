@@ -1,0 +1,89 @@
+#publishAdPage {
+    margin-top: 150px;
+    margin-left: 380px;
+    width: 33%;
+    padding-bottom: 100px;
+    color: #141414;
+}
+#publishAdPage form {
+    width: 100%;
+}
+/* USER INDICATION ADVANCMENT FORM */
+#userIndicationFormStatus {
+    position: fixed;
+    top: 150px;
+    right: 380px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    padding: 25px 40px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+#userIndicationFormStatus > p {
+    font-size: 0.9em;
+}
+
+#userIndicationFormStatus > article {
+    display: grid;
+    grid-template-columns: 25px auto;
+    grid-template-rows: auto auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.verticalLine {
+    grid-area: 1 / 1 / 2 / 2;
+
+    width: 2px;
+    height: 12px;
+    border-radius: 10px;
+    margin: 5px auto;
+}
+.circle {
+    grid-area: 2 / 1 / 3 / 2;
+
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin: auto;
+}
+.content {
+    grid-area: 2 / 2 / 3 / 3;
+
+    margin-left: 10px;
+    color: #2e2e2e;
+}
+
+/* normal */
+.verticalLine,
+.circle {
+    background: #a1a1a1;
+}
+/* validate */
+.validate :is(.verticalLine, .circle) {
+    background: #eec643;
+}
+/* in progress */
+.inprogress :is(.verticalLine, .circle) {
+    background: #141414;
+}
+/* text validate & progress text */
+:is(.validate, .inprogress) .content {
+    color: #141414;
+}
+
+/* background image */
+.validate .circle {
+    background-image: url("../assets/icons/confirm-black.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.inprogress .circle {
+    background-image: url("../assets/icons/arrow-white.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+}

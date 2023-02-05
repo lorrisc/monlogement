@@ -53,3 +53,14 @@
     margin-top: 4px;
     font-size: 0.9em;
 }
+
+/* return button */
+.returnButton {
+    margin-right: auto;
+    margin-left: 30px;
+    background: #14141425;
+    margin-bottom: 20px;
+}
+.returnButton:hover {
+    background: #14141450;
+}

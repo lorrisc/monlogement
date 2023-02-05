@@ -29,21 +29,21 @@ id="accountDashboardPage"
 <section id="account__dashboard">
     <div id="account__dashboard__firstline">
         <a href="">
-            <img src="{{ asset('assets/icons/heart_premium.png') }}" alt="Icône favoris">
+            <img src="{{ asset('assets/icons/heart-dynamic-premium.png') }}" alt="Icône favoris">
             <div>
                 <p class="semiBold">Favoris</p>
                 <p class="textButton">Biens immobiliers enregistrés</p>
             </div>
         </a>
         <a href="">
-            <img src="{{ asset('assets/icons/bell_premium.png') }}" alt="Icône alertes">
+            <img src="{{ asset('assets/icons/bell-dynamic-premium.png') }}" alt="Icône alertes">
             <div>
                 <p class="semiBold">Alertes</p>
                 <p class="textButton">Recherche immobilièress</p>
             </div>
         </a>
         <a href="{{ route( 'manageaccount') }}">
-            <img src="{{ asset('assets/icons/setting_premium.png') }}" alt="Icône gérer compte">
+            <img src="{{ asset('assets/icons/setting-dynamic-premium.png') }}" alt="Icône gérer compte">
             <div>
                 <p class="semiBold">Gérer mon compte</p>
                 <p class="textButton">E-mail, mot de passe, ...</p>
@@ -52,21 +52,21 @@ id="accountDashboardPage"
     </div>
     <div id="account__dashboard__secondline">
         <a href="">
-            <img src="{{ asset('assets/icons/folder_premium.png') }}" alt="Icône espace locataire">
+            <img src="{{ asset('assets/icons/chat-bubble-dynamic-premium.png') }}" alt="Icône messagerie">
             <div>
-                <p class="semiBold">Espace locataire</p>
-                <p class="textButton">Historique, candidatures</p>
+                <p class="semiBold">Messagerie</p>
+                <p class="textButton">Consulter vos messages</p>
             </div>
         </a>
-        <a href="">
-            <img src="{{ asset('assets/icons/key_premium.png') }}" alt="Icône espace propriétaire">
+        <a href="{{ route( 'managead') }}">
+            <img src="{{ asset('assets/icons/folder-dynamic-premium.png') }}" alt="Icône espace propriétaire">
             <div>
-                <p class="semiBold">Espace propriétaire</p>
-                <p class="textButton">Annonces déposés et candidatures</p>
+                <p class="semiBold">Mes annonces</p>
+                <p class="textButton">Gérer vos biens immobiliers</p>
             </div>
         </a>
         <a href="{{ route( 'logout') }}">
-            <img src="{{ asset('assets/icons/rocket_premium.png') }}" alt="Icône déconnexion">
+            <img src="{{ asset('assets/icons/rocket-dynamic-premium.png') }}" alt="Icône déconnexion">
             <div>
                 <p class="semiBold">Se déconnecter</p>
             </div>
