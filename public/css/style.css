@@ -170,6 +170,11 @@ input.normalInput {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 10px;
+}
+.normalInputManyElementsLeft {
+    padding-left: 10px;
+    padding-right: 0px;
 }
 .normalInputManyElements input {
     height: 100%;
@@ -182,6 +187,9 @@ input.normalInput {
 
     border: none;
     outline: none;
+}
+.normalInputManyElements p {
+    white-space: nowrap;
 }
 
 .errorInput {
@@ -233,6 +241,24 @@ button {
     color: #141414;
 }
 
+.actionOnInputButton {
+    background: #14141425;
+    height: 33px;
+    width: 50px;
+    border-radius: 2.5px;
+    font-family: FiraSansSemiBold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.actionOnInputButton.disabled {
+    background: #14141415;
+}
+.actionOnInputButton.disabled:hover {
+    background: #14141415;
+}
+.actionOnInputButton:hover {
+    background: #14141450;
+}
 /* validation button */
 .submitButtonContainer {
     padding-left: 20px;
@@ -272,6 +298,7 @@ button {
     color: #14141450;
 }
 
-.popupDesactivate {
+.popupDesactivate,
+.hide {
     display: none;
 }
