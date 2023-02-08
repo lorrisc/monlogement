@@ -35,6 +35,46 @@ function addForeground(index) {
     formParts[index].appendChild(foreground);
 }
 
+//BLOCK TABS SCROLL
+let autoScrolling = false;
+
+let actualScroll = 0;
+let inAntiScroll = false;
+
+window.onscroll = function () {
+    if (autoScrolling == false && inAntiScroll == false) {
+        console.log("unscroll");
+
+        window.scrollTo({
+            top: actualScroll,
+            behavior: "smooth",
+        });
+        inAntiScroll = true;
+        window.addEventListener("scroll", function () {
+            // Vérifier si la position du défilement est égale à la position souhaitée
+            if (window.scrollY === actualScroll) {
+                // Supprimer l'écouteur d'événement pour éviter les fuites de mémoire
+                window.removeEventListener("scroll", arguments.callee);
+                inAntiScroll = false;
+            }
+        });
+    }
+};
+// window.addEventListener("scroll", function () {
+//     if (inscrolling == false) {
+//         console.log("scroll");
+//         inscrolling = true;
+//         setTimeout(() => {
+//             console.log("reel");
+//             let heightActualPart = formParts[actualPart].offsetTop;
+//             window.scrollTo({
+//                 top: heightActualPart - 80,
+//             });
+//         }, 2000);
+//         inscrolling = false;
+//     }
+// });
+
 // ANIMATION ON RADIO BUTTONS
 function radioAnimation(element, indexParent, indexElement) {
     // add active background
@@ -57,15 +97,39 @@ function radioAnimation(element, indexParent, indexElement) {
 
 // AUTO SCROLL WHEN COMPLETE A PART
 function scrollAnimation(indexParent) {
-    let heightPart = formParts[indexParent].scrollHeight;
+    heightPart = formParts[indexParent].scrollHeight;
+    actualScroll = window.scrollY;
+
     setTimeout(() => {
+        autoScrolling = true;
         window.scrollBy(0, heightPart + 80);
+
+        // window.scrollTo({
+        //     top: actualScroll + heightPart + 80,
+        //     behavior: "smooth",
+        // });
+
+        // );
+        // Attacher un écouteur d'événement à la fenêtre pour surveiller le défilement
+        window.addEventListener("scroll", function () {
+            // Vérifier si la position du défilement est égale à la position souhaitée
+            console.log(window.scrollY);
+            if (window.scrollY === actualScroll + heightPart + 80) {
+                // Supprimer l'écouteur d'événement pour éviter les fuites de mémoire
+                window.removeEventListener("scroll", arguments.callee);
+                autoScrolling = false;
+                actualScroll = window.scrollY;
+            }
+        });
 
         // remove foreground on next
         let foreground = formParts[indexParent + 1].querySelector(
             ".foregroundCreation"
         );
         formParts[indexParent + 1].removeChild(foreground);
+
+        // add foreground on previous
+        addForeground(indexParent);
     }, 100);
 }
 
@@ -86,6 +150,9 @@ function updateLifeLine(index, text) {
         lifeLineArticles[index + 1].classList.add("inprogress");
     }, 100);
 }
+let topLifeLineText = document.querySelector(
+    "#userIndicationFormStatus > p > span"
+);
 
 //* types
 let adTypeButton__Rent = document.querySelector("#adTypeButton__Rent");
@@ -94,10 +161,16 @@ let adTypeButton__Sell = document.querySelector("#adTypeButton__Sell");
 adTypeButton__Rent.addEventListener("click", () => {
     radioAnimation(adTypeButton__Rent, 0, 0);
     updateLifeLine(0, "Location");
+    setTimeout(() => {
+        topLifeLineText.innerHTML = "Louer";
+    }, 100);
 });
 adTypeButton__Sell.addEventListener("click", () => {
     radioAnimation(adTypeButton__Sell, 0, 1);
     updateLifeLine(0, "Vendre");
+    setTimeout(() => {
+        topLifeLineText.innerHTML = "Vendre";
+    }, 100);
 });
 
 //* propertieType
@@ -491,10 +564,6 @@ adresseValue.addEventListener("input", async (event) => {
         fetch(url, { method: "get" })
             .then((response) => response.json())
             .then((results) => {
-                console.log("appel");
-
-                console.log(results.features);
-
                 addressArray = [];
                 adresseDropDownUl.innerHTML = "";
 
@@ -570,4 +639,30 @@ adresseValue.addEventListener("input", async (event) => {
                 throw error;
             });
     }, 500);
+});
+
+//* attr supp
+let attrSuppInputs = document.querySelectorAll(
+    "#attrSupp .checkboxsContainer input[type=checkbox]"
+);
+let attrSuppButtons = document.querySelectorAll("#attrSupp .content button");
+let attrSuppLabels = document.querySelectorAll("#attrSupp .buttonContent");
+
+attrSuppButtons.forEach((element, index) => {
+    element.addEventListener("click", () => {
+        if (attrSuppLabels[index].classList.contains("active")) {
+            attrSuppLabels[index].classList.remove("active");
+            attrSuppInputs[index].checked = false;
+        } else {
+            attrSuppLabels[index].classList.add("active");
+            attrSuppInputs[index].checked = true;
+        }
+    });
+});
+
+let attrSuppButton = document.querySelector("#submitAttrSupp");
+
+attrSuppButton.addEventListener("click", () => {
+    scrollAnimation(11);
+    updateLifeLine(11, "Attributs supplémentaires");
 });

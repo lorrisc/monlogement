@@ -2,7 +2,7 @@
     margin-top: 100px;
     margin-left: 380px;
     width: 38%;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     color: #141414;
 }
 body {
@@ -108,9 +108,7 @@ form > article {
 .buttonContent img {
     margin-bottom: 5px;
 }
-.buttonContent.active,
-.buttonContent:hover,
-.content button:focus label {
+.buttonContent.active {
     background: #eec643;
 }
 

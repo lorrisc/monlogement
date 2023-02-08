@@ -284,7 +284,7 @@ id="publishAdPage"
             <h2>Pour finir cochez les attributs correspondant à votre bien</h2>
         </div>
 
-        <div>
+        <div class="checkboxsContainer">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__balcony">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__terrace">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__cellar">
@@ -294,29 +294,33 @@ id="publishAdPage"
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__intercom">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__guardian">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__lift">
+            <input type="checkbox" name="attrSuppValue" id="attrSuppValue__chimney">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__pool">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__separate_toilet">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__expanded_fiber">
             <input type="checkbox" name="attrSuppValue" id="attrSuppValue__electric_vehicle_charging">
         </div>
+
         <div class="content">
-
-
-            <button type="button"><label for="attrSuppValue__balcony" class="buttonContent">Balcon</label> </button>
-            <button type="button"><label for="attrSuppValue__terrace" class="buttonContent">Terrasse</label> </button>
-            <button type="button"><label for="attrSuppValue__cellar" class="buttonContent">Cave</label> </button>
-            <button type="button"><label for="attrSuppValue__parking" class="buttonContent">Parking</label> </button>
-            <button type="button"><label for="attrSuppValue__garden" class="buttonContent">Jardin</label> </button>
-            <button type="button"><label for="attrSuppValue__digicode" class="buttonContent">Digicode</label> </button>
-            <button type="button"><label for="attrSuppValue__intercom" class="buttonContent">Interphone</label> </button>
-            <button type="button"><label for="attrSuppValue__guardian" class="buttonContent">Gardien</label> </button>
-            <button type="button"><label for="attrSuppValue__lift" class="buttonContent">Ascenseur</label> </button>
-            <button type="button"><label for="attrSuppValue__chimney" class="buttonContent">Cheminée</label> </button>
-            <button type="button"><label for="attrSuppValue__pool" class="buttonContent">Piscine</label> </button>
-            <button type="button"><label for="attrSuppValue__separate_toilet" class="buttonContent">Toilette separré</label> </button>
-            <button type="button"><label for="attrSuppValue__expanded_fiber" class="buttonContent">Fibre</label> </button>
-            <button type="button"><label for="attrSuppValue__electric_vehicle_charging" class="buttonContent">Chargeur véhicule électrique</label> </button>
+            <!-- label "for" is manage in javascript -->
+            <button type="button"><label class="buttonContent">Balcon</label> </button>
+            <button type="button"><label class="buttonContent">Terrasse</label> </button>
+            <button type="button"><label class="buttonContent">Cave</label> </button>
+            <button type="button"><label class="buttonContent">Parking</label> </button>
+            <button type="button"><label class="buttonContent">Jardin</label> </button>
+            <button type="button"><label class="buttonContent">Digicode</label> </button>
+            <button type="button"><label class="buttonContent">Interphone</label> </button>
+            <button type="button"><label class="buttonContent">Gardien</label> </button>
+            <button type="button"><label class="buttonContent">Ascenseur</label> </button>
+            <button type="button"><label class="buttonContent">Cheminée</label> </button>
+            <button type="button"><label class="buttonContent">Piscine</label> </button>
+            <button type="button"><label class="buttonContent">Toilette separré</label> </button>
+            <button type="button"><label class="buttonContent">Fibre</label> </button>
+            <button type="button"><label class="buttonContent">Chargeur véhicule électrique</label> </button>
         </div>
+
+        <button type="button" class="button submitButton" id="submitAttrSupp">Continuer</button>
+
     </article>
 
     <article class="submitForm">
