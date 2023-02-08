@@ -31,13 +31,13 @@ id="publishAdPage"
             </div>
         </div>
 
-        <div>
+        <div class="inputContainer">
             <input type="radio" name="adTypeValue" id="adTypeValue__Rent">
             <input type="radio" name="adTypeValue" id="adTypeValue__Sell">
         </div>
         <div class="content contentTwoButton">
-            <button type="button"><label for="adTypeValue__Rent" class="buttonContent">Louer</label></button>
-            <button type="button"><label for="adTypeValue__Sell" class="buttonContent">Vendre</label></button>
+            <button type="button" id="adTypeButton__Rent"><label for="adTypeValue__Rent" id="adTypeLabel__Rent" class="buttonContent">Louer</label></button>
+            <button type="button" id="adTypeButton__Sell"><label for="adTypeValue__Sell" id="adTypeLabel__Sell" class="buttonContent">Vendre</label></button>
         </div>
     </article>
 
@@ -62,13 +62,13 @@ id="publishAdPage"
 
         <div class="content contentOneLineButton">
 
-            <button type="button">
+            <button type="button" id="propertieTypeButton__House">
                 <label for="propertieTypeValue__House" class="buttonContent">
                     <img src="{{ asset('assets/icons/home.svg') }}" alt="icone maison">
                     Maison
                 </label>
             </button>
-            <button type="button">
+            <button type="button" id="propertieTypeButton__Appartment">
                 <label for="propertieTypeValue__Appartment" class="buttonContent">
                     <img src="{{ asset('assets/icons/building.svg') }}" alt="icone immeuble">
                     Appartement
@@ -90,7 +90,7 @@ id="publishAdPage"
             </div>
         </div>
 
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" class="button submitButton blockSubmit" id="submitSurface">Continuer</button>
     </article>
 
     <article id="room">
@@ -119,7 +119,7 @@ id="publishAdPage"
                 <div class="normalInputManyElements">
                     <button type="button" class="button actionOnInputButton disabled">-</button>
                     <input type="number" name="bedroomNumberValue" id="bedroomNumberValue" value="0">
-                    <button type="button" class="button actionOnInputButton">+</button>
+                    <button type="button" class="button actionOnInputButton disabled">+</button>
                 </div>
             </div>
             <div id="bathroom__number">
@@ -129,7 +129,7 @@ id="publishAdPage"
                 <div class="normalInputManyElements">
                     <button type="button" class="button actionOnInputButton disabled">-</button>
                     <input type="number" name="bathroomNumberValue" id="bathroomNumberValue" value="0">
-                    <button type="button" class="button actionOnInputButton">+</button>
+                    <button type="button" class="button actionOnInputButton disabled">+</button>
                 </div>
             </div>
             <div id="toilet__number">
@@ -139,16 +139,12 @@ id="publishAdPage"
                 <div class="normalInputManyElements">
                     <button type="button" class="button actionOnInputButton disabled">-</button>
                     <input type="number" name="toiletNumberValue" id="toiletNumberValue" value="0">
-                    <button type="button" class="button actionOnInputButton">+</button>
+                    <button type="button" class="button actionOnInputButton disabled">+</button>
                 </div>
             </div>
         </div>
 
-        <div class="bottom_aditionnal_information">
-            <p>N’hésitez pas à ajouter plus de détail sur le loyer dans la description du bien. Exemple : montant des charges, montant des éventuel complément de loyer, ...</p>
-        </div>
-
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" id="submitRoom" class="button submitButton  blockSubmit">Continuer</button>
     </article>
 
     <article id="furniture">
@@ -162,8 +158,8 @@ id="publishAdPage"
         </div>
 
         <div class="content contentTwoButton">
-            <button type="button"><label for="furnitureValue__furniture" class="buttonContent">Meublé</label></button>
-            <button type="button"><label for="furnitureValue__unfurniture" class="buttonContent">Non meublé</label></button>
+            <button type="button" id="furnitureButton__furniture"><label for="furnitureValue__furniture" class="buttonContent">Meublé</label></button>
+            <button type="button" id="furnitureButton__unfurniture"><label for="furnitureValue__unfurniture" class="buttonContent">Non meublé</label></button>
         </div>
 
         <div class="bottom_aditionnal_information">
@@ -183,7 +179,7 @@ id="publishAdPage"
             </div>
         </div>
 
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" id="submitSurfaceField" class="button submitButton  blockSubmit">Continuer</button>
     </article>
 
     <article id="price">
@@ -206,7 +202,7 @@ id="publishAdPage"
             <p>N’hésitez pas à ajouter plus de détail sur le loyer dans la description du bien. Exemple : montant des charges, montant des éventuel complément de loyer, ...</p>
         </div>
 
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" id="submitPrice" class="button submitButton  blockSubmit">Continuer</button>
     </article>
 
     <article id="description">
@@ -222,7 +218,7 @@ id="publishAdPage"
             <textarea name="descriptionValue" id="descriptionValue" placeholder="Ajouter votre description ici"></textarea>
         </div>
 
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" id="submitDescription" class="button submitButton  blockSubmit">Continuer</button>
     </article>
 
     <article id="photo">
@@ -243,7 +239,7 @@ id="publishAdPage"
             </div>
         </div>
 
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" id="submitEnergy" class="button submitButton  blockSubmit">Continuer</button>
     </article>
 
     <article id="adresse">
@@ -269,29 +265,18 @@ id="publishAdPage"
 
             <div class="contentDropDown">
                 <ul>
-                    <button type="button">
-                        <li>10 rue des Ecureils 74000 Annecy</li>
-                    </button>
-                    <button type="button">
-                        <li>10 rue des Ecureils 74000 Annecy</li>
-                    </button>
-                    <button type="button">
-                        <li>10 rue des Ecureils 74000 Annecy</li>
-                    </button>
-                    <button type="button">
-                        <li>10 rue des Ecureils 74000 Annecy</li>
-                    </button>
                 </ul>
             </div>
 
             <div class="hide">
-                <input type="text" name="adresseValue" id="adresseValue" readonly>
-                <input type="text" name="cityValue" id="cityValue" readonly>
-                <input type="text" name="postalzipValue" id="postalzipValue" readonly>
+                <input type="text" name="adress_housenumber" id="adress_housenumber">
+                <input type="text" name="adress_street" id="adress_street">
+                <input type="text" name="adress_postcode" id="adress_postcode">
+                <input type="text" name="adress_city" id="adress_city">
             </div>
         </div>
 
-        <button type="button" class="button submitButton">Continuer</button>
+        <button type="button" id="submitAdress" class="button submitButton  blockSubmit">Continuer</button>
     </article>
 
     <article id="attrSupp">
@@ -336,7 +321,7 @@ id="publishAdPage"
 
     <article class="submitForm">
         <p>Vous vous appreté à publier votre bien immobiliers, en cliquant sur le bouton ci-dessous, vous accepter que votre bien soit visible sur notre plateforme. Vos coordonnées (courriel et téléphone seront visible de tous)</p>
-        <button type="submit" class="button submitButton">Publier mon bien</button>
+        <button type="button" class="button submitButton">Publier mon bien</button>
     </article>
 </form>
 
@@ -345,13 +330,13 @@ id="publishAdPage"
     <p><span>Louer</span> mon bien</p>
 
     <!-- LL = life line -->
-    <article id="adTypeLL" class="validate">
+    <article id="adTypeLL" class="inprogress">
         <div class="verticalLine"></div>
         <div class="circle"></div>
         <p class="content">Type d'annonce</p>
     </article>
 
-    <article id="propertieTypeLL" class="inprogress">
+    <article id="propertieTypeLL">
         <div class="verticalLine"></div>
         <div class="circle"></div>
         <p class="content">Type de bien</p>

@@ -15,6 +15,10 @@ h6 {
     font-weight: normal;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* font */
 @font-face {
     font-family: "FiraSansRegular";
@@ -296,6 +300,7 @@ button {
 .submitButton.blockSubmit {
     background-color: #14141425;
     color: #14141450;
+    cursor: auto;
 }
 
 .popupDesactivate,

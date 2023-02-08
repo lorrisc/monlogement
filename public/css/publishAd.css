@@ -1,9 +1,12 @@
 #publishAdPage {
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 380px;
     width: 38%;
     padding-bottom: 100px;
     color: #141414;
+}
+body {
+    overflow: hidden;
 }
 #publishAdPage form {
     width: 100%;
@@ -19,6 +22,7 @@ button {
 /* FORM */
 form > article {
     margin-bottom: 80px;
+    position: relative;
 }
 
 #publishAdPage h2 {
@@ -252,7 +256,7 @@ textarea {
     z-index: 99;
     display: none;
 }
-.contentDropDown.active{
+.contentDropDown.active {
     display: block;
 }
 li {
@@ -277,25 +281,34 @@ li {
 .contentDropDown button:is(:hover, :focus) {
     font-family: FiraSansSemiBold;
 }
-.contentDropDown button:is(:hover, :focus) li{
+.contentDropDown button:is(:hover, :focus) li {
     border-color: #14141475;
-
 }
 
-#room .normalInputManyElements{
+#room .normalInputManyElements {
     padding: 0 5px;
 }
-#room .normalInputManyElements input{
+#room .normalInputManyElements input {
     text-align: center;
 }
-#room .content > div{
+#room .content > div {
     margin: 20px 0;
+}
+
+/* BACKGROUND CREATION */
+.foregroundCreation {
+    background: #ffffffce;
+    width: 100%;
+    height: 105%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /********************** USER INDICATION ADVANCMENT FORM */
 #userIndicationFormStatus {
     position: fixed;
-    top: 150px;
+    top: 100px;
     right: 380px;
 
     display: flex;
@@ -370,4 +383,17 @@ li {
     background-image: url("../assets/icons/arrow-white.png");
     background-position: center top;
     background-repeat: no-repeat;
+
+    transition-timing-function: ease-out;
+    animation-duration: 0.2s;
+    animation-name: comeDown;
+}
+
+@keyframes comeDown {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0px);
+    }
 }
