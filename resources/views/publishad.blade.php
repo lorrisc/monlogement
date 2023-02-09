@@ -41,7 +41,7 @@ id="publishAdPage"
         </div>
     </article>
 
-    <article id=" propertieType">
+    <article id="propertieType">
         <div class="title">
             <h2>Quel type de bien souhaitez-vous louer ?</h2>
             <button type="button" class="info_popup_icon">
@@ -58,6 +58,19 @@ id="publishAdPage"
         <div>
             <input type="radio" name="propertieTypeValue" id="propertieTypeValue__House">
             <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Appartment">
+
+            <div id="propertieType__inputPopup">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__CarParkBox">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Ground">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__LoftWorkshopArea">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__CommercialProperty">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Buildings">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Castle">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__CommercialPremises">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Offices">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Mansion">
+                <input type="radio" name="propertieTypeValue" id="propertieTypeValue__Others">
+            </div>
         </div>
 
         <div class="content contentOneLineButton">
@@ -74,8 +87,55 @@ id="publishAdPage"
                     Appartement
                 </label>
             </button>
-            <button type="button"><label for="" class="buttonContent">Autre</label></button>
+            <button type="button" id="popupButton"><label for="" class="buttonDisplayPopup">Autre</label></button>
         </div>
+
+        <section class="popupContainer popupDesactivate">
+            <section class="bigPopup">
+                <div class="bigPopup__topLine">
+                    <div class="title">
+                        <h2>Quel type de bien souhaitez-vous louer ?</h2>
+                    </div>
+                    <button class="closeButton" type="button">
+                        <i class="fa-solid fa-xmark fa-xl"></i>
+                    </button>
+                </div>
+
+                <div class="bigPopup_content">
+                    <button type="button" id="propertieTypeButton__CarParkBox">
+                        <label for="propertieTypeValue__CarParkBox" class="buttonContent">Parking/box</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__Ground">
+                        <label for="propertieTypeValue__Ground" class="buttonContent">Terrain</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__LoftWorkshopArea">
+                        <label for="propertieTypeValue__LoftWorkshopArea" class="buttonContent">Loft/atelier/surface</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__CommercialProperty">
+                        <label for="propertieTypeValue__CommercialProperty" class="buttonContent">Fonds de commerce</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__Buildings">
+                        <label for="propertieTypeValue__Buildings" class="buttonContent">Bâtiments/immeuble</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__Castle">
+                        <label for="propertieTypeValue__Castle" class="buttonContent">Château</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__CommercialPremises">
+                        <label for="propertieTypeValue__CommercialPremises" class="buttonContent">Local commercial</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__Offices">
+                        <label for="propertieTypeValue__Offices" class="buttonContent">Bureaux</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__Mansion">
+                        <label for="propertieTypeValue__Mansion" class="buttonContent">Hôtel particulier</label>
+                    </button>
+                    <button type="button" id="propertieTypeButton__Others">
+                        <label for="propertieTypeValue__Others" class="buttonContent">Autres</label>
+                    </button>
+                </div>
+            </section>
+            <div class="popupBackground"></div>
+        </section>
     </article>
 
     <article id="surface">

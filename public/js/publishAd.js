@@ -43,8 +43,6 @@ let inAntiScroll = false;
 
 window.onscroll = function () {
     if (autoScrolling == false && inAntiScroll == false) {
-        console.log("unscroll");
-
         window.scrollTo({
             top: actualScroll,
             behavior: "smooth",
@@ -78,7 +76,7 @@ window.onscroll = function () {
 // ANIMATION ON RADIO BUTTONS
 function radioAnimation(element, indexParent, indexElement) {
     // add active background
-    let labels = formParts[indexParent].querySelectorAll(".content label");
+    let labels = formParts[indexParent].querySelectorAll(".buttonContent");
     labels[indexElement].classList.add("active");
 
     let inputs = formParts[indexParent].querySelectorAll(
@@ -93,45 +91,122 @@ function radioAnimation(element, indexParent, indexElement) {
     });
 
     scrollAnimation(indexParent);
+
+    // close popup
+    let popupContainer = document.querySelector(
+        "#propertieType .popupContainer"
+    );
+    if (popupContainer.classList.contains != "popupDesactivate") {
+        popupContainer.classList.add("popupDesactivate");
+    }
 }
 
 // AUTO SCROLL WHEN COMPLETE A PART
-function scrollAnimation(indexParent) {
-    heightPart = formParts[indexParent].scrollHeight;
-    actualScroll = window.scrollY;
+let indexParentVar = 0;
+function scrollAnimation(indexParent, unscroll = false) {
+    return new Promise(function (resolve) {
+        // if (unscroll == true) {
+        //     heightPart = formParts[indexParentVar].scrollHeight;
+        // } else {
+        //     heightPart = formParts[indexParent].scrollHeight;
+        // }
+        if (unscroll == true) {
+            indexParent = indexParentVar;
+        }
+        actualScroll = window.scrollY;
 
-    setTimeout(() => {
-        autoScrolling = true;
-        window.scrollBy(0, heightPart + 80);
+        setTimeout(() => {
+            autoScrolling = true;
+            // window.scrollBy(0, heightPart + 80);
 
-        // window.scrollTo({
-        //     top: actualScroll + heightPart + 80,
-        //     behavior: "smooth",
-        // });
+            // window.scrollTo({
+            //     top: actualScroll + heightPart + 80,
+            //     behavior: "smooth",
+            // });
 
-        // );
-        // Attacher un écouteur d'événement à la fenêtre pour surveiller le défilement
-        window.addEventListener("scroll", function () {
-            // Vérifier si la position du défilement est égale à la position souhaitée
-            console.log(window.scrollY);
-            if (window.scrollY === actualScroll + heightPart + 80) {
-                // Supprimer l'écouteur d'événement pour éviter les fuites de mémoire
-                window.removeEventListener("scroll", arguments.callee);
-                autoScrolling = false;
-                actualScroll = window.scrollY;
+            if (unscroll == true) {
+                window.scrollTo({
+                    top: formParts[indexParent - 1].offsetTop - 100,
+                    behavior: "smooth",
+                });
+            } else {
+                window.scrollTo({
+                    top: formParts[indexParent + 1].offsetTop - 100,
+                    behavior: "smooth",
+                });
             }
+            // );
+            // Attacher un écouteur d'événement à la fenêtre pour surveiller le défilement
+            window.addEventListener("scroll", function () {
+                // Vérifier si la position du défilement est égale à la position souhaitée
+                if (unscroll == true) {
+                    if (
+                        window.scrollY ===
+                        actualScroll +
+                            formParts[indexParent - 1].offsetTop -
+                            100
+                    ) {
+                        // Supprimer l'écouteur d'événement pour éviter les fuites de mémoire
+                        window.removeEventListener("scroll", arguments.callee);
+                        autoScrolling = false;
+                        actualScroll = window.scrollY;
+                    }
+                } else {
+                    if (
+                        window.scrollY ===
+                        actualScroll +
+                            formParts[indexParent + 1].offsetTop -
+                            100
+                    ) {
+                        // Supprimer l'écouteur d'événement pour éviter les fuites de mémoire
+                        window.removeEventListener("scroll", arguments.callee);
+                        autoScrolling = false;
+                        actualScroll = window.scrollY;
+                    }
+                }
+            });
+
+            // remove foreground on next
+            if (unscroll == true) {
+                let foreground = formParts[indexParent - 1].querySelector(
+                    ".foregroundCreation"
+                );
+                formParts[indexParent - 1].removeChild(foreground);
+            } else {
+                let foreground = formParts[indexParent + 1].querySelector(
+                    ".foregroundCreation"
+                );
+                formParts[indexParent + 1].removeChild(foreground);
+            }
+
+            // add foreground on previous
+            if (unscroll == true) {
+                addForeground(indexParentVar);
+                indexParentVar = indexParent - 1;
+            } else {
+                addForeground(indexParent);
+                indexParentVar = indexParent + 1;
+            }
+
+            setTimeout(() => {
+                resolve();
+            }, 300);
         });
-
-        // remove foreground on next
-        let foreground = formParts[indexParent + 1].querySelector(
-            ".foregroundCreation"
-        );
-        formParts[indexParent + 1].removeChild(foreground);
-
-        // add foreground on previous
-        addForeground(indexParent);
     }, 100);
 }
+
+// EVENT ON USER DESCROLL
+let animatingUnscroll = false;
+window.addEventListener("wheel", function (event) {
+    if (event.deltaY < 0 && animatingUnscroll == false) {
+        if (indexParentVar > 0) {
+            animatingUnscroll = true;
+            scrollAnimation(null, true).then(function () {
+                animatingUnscroll = false;
+            });
+        }
+    }
+});
 
 // CHANGE LIFE LINE INFORMATION
 let lifeLineArticles = document.querySelectorAll(
@@ -148,6 +223,17 @@ function updateLifeLine(index, text) {
         lifeLineArticles[index].classList.add("validate");
 
         lifeLineArticles[index + 1].classList.add("inprogress");
+
+        // change focus position
+        let inputs = formParts[index + 1].querySelectorAll(
+            ':is(input[type="text"],input[type="number"],textarea,input[type="email"])'
+        );
+        if (inputs.length > 0) {
+            inputs[0].focus();
+        } else {
+            //unfocus
+            document.activeElement.blur();
+        }
     }, 100);
 }
 let topLifeLineText = document.querySelector(
@@ -181,6 +267,37 @@ let propertieTypeButton__Appartment = document.querySelector(
     "#propertieTypeButton__Appartment"
 );
 
+let propertieTypeButton__CarParkBox = document.querySelector(
+    "#propertieTypeButton__CarParkBox"
+);
+let propertieTypeButton__Ground = document.querySelector(
+    "#propertieTypeButton__Ground"
+);
+let propertieTypeButton__LoftWorkshopArea = document.querySelector(
+    "#propertieTypeButton__LoftWorkshopArea"
+);
+let propertieTypeButton__CommercialProperty = document.querySelector(
+    "#propertieTypeButton__CommercialProperty"
+);
+let propertieTypeButton__Buildings = document.querySelector(
+    "#propertieTypeButton__Buildings"
+);
+let propertieTypeButton__Castle = document.querySelector(
+    "#propertieTypeButton__Castle"
+);
+let propertieTypeButton__CommercialPremises = document.querySelector(
+    "#propertieTypeButton__CommercialPremises"
+);
+let propertieTypeButton__Offices = document.querySelector(
+    "#propertieTypeButton__Offices"
+);
+let propertieTypeButton__Mansion = document.querySelector(
+    "#propertieTypeButton__Mansion"
+);
+let propertieTypeButton__Others = document.querySelector(
+    "#propertieTypeButton__Others"
+);
+
 propertieTypeButton__House.addEventListener("click", () => {
     radioAnimation(propertieTypeButton__House, 1, 0);
     updateLifeLine(1, "Maison");
@@ -188,6 +305,65 @@ propertieTypeButton__House.addEventListener("click", () => {
 propertieTypeButton__Appartment.addEventListener("click", () => {
     radioAnimation(propertieTypeButton__Appartment, 1, 1);
     updateLifeLine(1, "Appartement");
+});
+propertieTypeButton__CarParkBox.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__CarParkBox, 1, 2);
+    updateLifeLine(1, "Parking/box");
+});
+propertieTypeButton__Ground.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__Ground, 1, 3);
+    updateLifeLine(1, "Terrain");
+});
+propertieTypeButton__LoftWorkshopArea.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__LoftWorkshopArea, 1, 4);
+    updateLifeLine(1, "Loft/atelier/surface");
+});
+propertieTypeButton__CommercialProperty.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__CommercialProperty, 1, 5);
+    updateLifeLine(1, "Fonds de commerce");
+});
+propertieTypeButton__Buildings.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__Buildings, 1, 6);
+    updateLifeLine(1, "Bâtiments/immeuble");
+});
+propertieTypeButton__Castle.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__Castle, 1, 7);
+    updateLifeLine(1, "Château");
+});
+propertieTypeButton__CommercialPremises.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__CommercialPremises, 1, 8);
+    updateLifeLine(1, "Local commercial");
+});
+propertieTypeButton__Offices.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__Offices, 1, 9);
+    updateLifeLine(1, "Bureaux");
+});
+propertieTypeButton__Mansion.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__Mansion, 1, 10);
+    updateLifeLine(1, "Hôtel particulier");
+});
+propertieTypeButton__Others.addEventListener("click", () => {
+    radioAnimation(propertieTypeButton__Others, 1, 11);
+    updateLifeLine(1, "Autres");
+});
+
+//close popup
+let propertyTypesPopupButton = document.querySelector(
+    "#propertieType #popupButton"
+);
+propertyTypesPopupButton.addEventListener("click", () => {
+    let popupContainer = document.querySelector(
+        "#propertieType .popupContainer"
+    );
+    popupContainer.classList.remove("popupDesactivate");
+});
+//close popup
+let propertyTypesClick = document.querySelector("#propertieType .closeButton");
+propertyTypesClick.addEventListener("click", () => {
+    let popupContainer = document.querySelector(
+        "#propertieType .popupContainer"
+    );
+    popupContainer.classList.add("popupDesactivate");
 });
 
 //* surface
