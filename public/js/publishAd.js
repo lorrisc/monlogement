@@ -678,10 +678,10 @@ submitDescription.addEventListener("click", () => {
         scrollAnimation(7);
         updateLifeLine(7, "Description du bien");
 
-        setTimeout(() => {
-            scrollAnimation(8);
-            updateLifeLine(8, "Photos");
-        }, 500);
+        // setTimeout(() => {
+        //     scrollAnimation(8);
+        //     updateLifeLine(8, "Photos");
+        // }, 500);
     }
 });
 

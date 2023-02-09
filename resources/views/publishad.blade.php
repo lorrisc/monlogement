@@ -285,6 +285,57 @@ id="publishAdPage"
         <div class="title">
             <h2>Avez-vous quelques photos ?</h2>
         </div>
+
+        <div class="content">
+            <button class="content__dlPhotos" type="button">
+                <div>
+                    <i class="fa-solid fa-plus fa-xl"></i>
+                </div>
+                <p>Télécharger des photos</p>
+                <p>(Formats supportés : jpeg, png)</p>
+            </button>
+
+            <div class="inputContainer">
+                <input type="file" name="firstPhoto" id="firstPhoto" accept="image/*">
+                <input type="file" name="photos" id="photos" accept="image/*" multiple>
+            </div>
+            <article class="content__showPhotos desactivate">
+                <div class="photo firstPhoto">
+                    <div class="photo__line">
+                        <p>Première</p>
+                        <button class="closeButton" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo">
+                    <div class="photo__line">
+                        <button class="closeButton" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo">
+                    <div class="photo__line">
+                        <button class="closeButton" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo">
+                    <div class="photo__line">
+                        <button class="closeButton" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div id="photo__button">
+            <button type="button" id="submitPhoto" class="button submitButton  blockSubmit">Continuer</button>
+            <button type="button" id="addPhoto" class="button">Ajouter des photos</button>
+        </div>
     </article>
 
     <article id="energyConsumption">

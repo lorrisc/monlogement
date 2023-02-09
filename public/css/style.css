@@ -270,7 +270,8 @@ button {
 }
 
 .submitButton,
-.resetButton {
+.resetButton,
+#addPhoto {
     margin: 35px auto 30px auto;
     width: 100%;
     height: 50px;
@@ -304,6 +305,7 @@ button {
 }
 
 .popupDesactivate,
-.hide {
+.hide,
+.desactivate {
     display: none;
 }

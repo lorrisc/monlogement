@@ -221,7 +221,8 @@ form > article {
 
 /* INPUTS */
 input[type="radio"],
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="file"] {
     display: none;
 }
 
@@ -352,6 +353,106 @@ li {
     height: 100vh;
     z-index: 997;
     background: #eef0f280;
+}
+
+/* PHOTO */
+#photo .content {
+    height: 250px;
+}
+.content__dlPhotos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 70%;
+    font-size: 1em;
+    color: #141414;
+    border-radius: 2.5px;
+    border: 1px dashed #14141450;
+}
+.content__dlPhotos > div {
+    width: 40px;
+    aspect-ratio: 1/1;
+    background: #eec643;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.content__dlPhotos:hover > div,
+.content__dlPhotos:focus > div {
+    background: #e1bb41;
+    transition: background-color 0.3s ease-out;
+}
+
+#photo__button {
+    display: flex;
+    align-items: center;
+}
+#photo__button button:first-child {
+    margin-right: 50px;
+}
+#addPhoto {
+    width: auto;
+    padding-right: 50px;
+    padding-left: 50px;
+    border: 2px solid #14141475;
+    color: #141414;
+    margin: 40px 0 0 0;
+    transition: border-color 0.2s ease-out;
+}
+#addPhoto:hover,
+#addPhoto:focus {
+    border-color: #141414;
+}
+
+.content__showPhotos {
+    display: flex;
+    width: 90%;
+    height: 100%;
+    overflow-x: scroll;
+}
+.content__showPhotos.desactivate {
+    display: none;
+}
+.content__showPhotos .photo {
+    border-radius: 2.5px;
+
+    background-image: url(../assets/home/home-bg-blur.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    aspect-ratio: 1/1;
+    margin-right: 15px;
+    padding: 5px;
+}
+.content__showPhotos .photo .photo__line {
+    display: flex;
+    justify-content: flex-end;
+}
+.content__showPhotos .photo .photo__line .closeButton {
+    width: 30px;
+    aspect-ratio: 1/1;
+    background: #eec643;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content__showPhotos .photo.firstPhoto .photo__line {
+    justify-content: space-between;
+}
+.content__showPhotos .photo.firstPhoto .photo__line p {
+    padding: 5px;
+    background: #eec643;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75em;
 }
 
 /********************** USER INDICATION ADVANCMENT FORM */
