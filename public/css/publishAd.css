@@ -1,4 +1,4 @@
-#publishAdPage {
+    #publishAdPage {
     margin-top: 100px;
     margin-left: 380px;
     width: 38%;
@@ -371,6 +371,9 @@ li {
     border-radius: 2.5px;
     border: 1px dashed #14141450;
 }
+.content__dlPhotos.desactivate {
+    display: none;
+}
 .content__dlPhotos > div {
     width: 40px;
     aspect-ratio: 1/1;
@@ -420,7 +423,7 @@ li {
 .content__showPhotos .photo {
     border-radius: 2.5px;
 
-    background-image: url(../assets/home/home-bg-blur.jpg);
+    /* background-image: url(../assets/home/home-bg-blur.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -459,7 +462,8 @@ li {
 #userIndicationFormStatus {
     position: fixed;
     top: 100px;
-    right: 380px;
+    /* right: 380px; */
+    right: 50px;
 
     display: flex;
     flex-direction: column;

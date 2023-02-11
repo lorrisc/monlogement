@@ -842,3 +842,112 @@ attrSuppButton.addEventListener("click", () => {
     scrollAnimation(11);
     updateLifeLine(11, "Attributs supplémentaires");
 });
+
+//* photos
+
+function previewPhotos() {
+    let preview = document.querySelector("#photo .content__showPhotos");
+    preview.classList.remove("desactivate");
+    preview.innerHTML = "";
+
+    let buttonAddFirstPhoto = document.querySelector(
+        "#photo .content__dlPhotos"
+    );
+    buttonAddFirstPhoto.classList.add("desactivate");
+
+    let firstPhotoInput = document.querySelector("#firstPhoto");
+    let morePhotoInput = document.querySelector("#photo #photos");
+
+    previewAddPhotos(firstPhotoInput, 1);
+    previewAddPhotos(morePhotoInput, 2);
+
+    let deleteButton = document.querySelectorAll("#photo .closeButton");
+    deleteButton.forEach((element) => {
+        element.addEventListener("click", () => {
+            firstPhotoInput.value = "";
+            morePhotoInput.value = "";
+
+            previewPhotos();
+            preview.classList.add("desactivate");
+            buttonAddFirstPhoto.classList.remove("desactivate");
+
+            let addMorePhotos = document.querySelector("#photo #addPhoto");
+            addMorePhotos.classList.add("desactivate");
+
+            submitPhoto.classList.add("blockSubmit");
+        });
+    });
+}
+
+function previewAddPhotos(input, position) {
+    let preview = document.querySelector("#photo .content__showPhotos");
+
+    for (let file of input.files) {
+        let addMorePhotos = document.querySelector("#photo #addPhoto");
+        addMorePhotos.classList.remove("desactivate");
+
+        let photoContainer = document.createElement("div");
+        photoContainer.classList.add("photo");
+        photoContainer.style.backgroundImage =
+            "url(" + URL.createObjectURL(file) + ")";
+
+        if (position == 1) {
+            photoContainer.classList.add("firstPhoto");
+        }
+        let photoLine = document.createElement("div");
+        photoLine.classList.add("photo__line");
+        photoContainer.appendChild(photoLine);
+
+        if (position == 1) {
+            let textFirstPhoto = document.createElement("p");
+            textFirstPhoto.textContent = "Première";
+            photoLine.appendChild(textFirstPhoto);
+        }
+
+        let buttonDelete = document.createElement("button");
+        buttonDelete.type = "button";
+        buttonDelete.classList.add("closeButton");
+        photoLine.appendChild(buttonDelete);
+
+        let closeButtonIcon = document.createElement("i");
+        closeButtonIcon.classList.add("fa-solid");
+        closeButtonIcon.classList.add("fa-xmark");
+        buttonDelete.appendChild(closeButtonIcon);
+
+        preview.appendChild(photoContainer);
+    }
+}
+
+let submitPhoto = document.querySelector("#photo #submitPhoto");
+// first photo
+let addFirstPhotoButton = document.querySelector("#photo .content__dlPhotos");
+addFirstPhotoButton.addEventListener("click", () => {
+    let firstPhotoInput = document.querySelector("#firstPhoto");
+    firstPhotoInput.click();
+
+    firstPhotoInput.addEventListener("change", () => {
+        previewPhotos();
+
+        submitPhoto.classList.remove("blockSubmit");
+    });
+});
+
+submitPhoto.addEventListener("click", () => {
+    if (submitPhoto.classList.contains("blockSubmit")) {
+        return;
+    } else {
+        scrollAnimation(8);
+        updateLifeLine(8, "Photos");
+    }
+});
+
+// other photos
+let addMorePhotos = document.querySelector("#photo #addPhoto");
+addMorePhotos.addEventListener("click", () => {
+    let morePhotoInput = document.querySelector("#photo #photos");
+    morePhotoInput.click();
+
+    morePhotoInput.addEventListener("change", () => {
+        previewPhotos();
+    });
+});
